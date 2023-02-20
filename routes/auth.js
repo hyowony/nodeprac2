@@ -5,6 +5,17 @@ const { User } = require("../models");
 const bcrypt = require("bcrypt")
 
 
+router.get("/users", async (req,res)=> {
+  try {
+    const users = await User.findAll({
+
+    
+      attributes: {exclude:['password']}
+    
+    });
+    res.json(users);
+  } catch(err) {}
+});
 //회원가입 
 router.post('/signup', async (req,res) => {
  try {
@@ -24,7 +35,7 @@ router.post('/signup', async (req,res) => {
     return res.status(422).json({message:err.details[0].message})
   }
   res.status(500).json({message:err.message});
-
+  console.log(err)
 
  }
 });

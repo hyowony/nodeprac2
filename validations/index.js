@@ -11,7 +11,14 @@ const signupValidation = joi.object({
 'any.only': '비밀번호가 틀렸어',
   }),
 })
+const postCreateValidation = joi.object({
+  title: joi.string().not('').required(),
+  content: joi.string().not('').required(),
+  userId : joi.number().required(),
+
+  
+})
 module.exports =  {
-  signupValidation,
+  signupValidation, postCreateValidation
 };
 //여러개를 보낼 때에는 객체 형식으로 모듈 익스포츠 한다. 
