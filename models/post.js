@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       //UserId => userId CamelCase Convert 
       this.belongsTo(User, { foreignKey: 'userId', as:'user'})
+      //관계 설정하는 것 유심히 보기
     }
   }
   Post.init({
