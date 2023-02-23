@@ -23,7 +23,21 @@ const postUpdateValidation = joi.object({
   content:joi.string().optional().not(''),
   userId: joi.forbidden(),
 })
+
+const commentCreateValidation = joi.object({
+  content :joi.string().not('').required(),
+  userId: joi.number().required(),
+  postId: joi.forbidden(),
+
+})
+const commentupdateValidation = joi.object({
+  content : joi.string().not('')
+})
 module.exports =  {
-  signupValidation, postCreateValidation,postUpdateValidation
+  signupValidation, 
+  postCreateValidation,
+  postUpdateValidation,
+  commentCreateValidation, 
+  commentupdateValidation
 };
 //여러개를 보낼 때에는 객체 형식으로 모듈 익스포츠 한다. 
